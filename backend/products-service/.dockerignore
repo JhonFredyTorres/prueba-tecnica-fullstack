@@ -1,0 +1,35 @@
+# Archivos de IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Archivos de build locales
+target/
+!target/*.jar
+
+# Logs
+*.log
+logs/
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.docker/
+
+# Documentación
+*.md
+docs/
+
+# Tests (ya se ejecutan en el build)
+src/test/
+
+# Archivos temporales
+*.tmp
+*.bak
+*~

@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+npm-debug.log
+
+# Build output (se genera en el container)
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Angular cache
+.angular/
+
+# Test
+coverage/
+*.spec.ts
+
+# Misc
+README.md
+.editorconfig
+*.md

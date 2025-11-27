@@ -1,0 +1,17 @@
+.idea/
+*.iml
+.vscode/
+target/
+!target/*.jar
+*.log
+logs/
+.git/
+.gitignore
+Dockerfile
+docker-compose*.yml
+*.md
+docs/
+src/test/
+*.tmp
+*.bak
+*~

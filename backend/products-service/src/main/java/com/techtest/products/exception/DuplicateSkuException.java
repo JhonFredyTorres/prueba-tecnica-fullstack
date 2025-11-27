@@ -1,0 +1,18 @@
+package com.techtest.products.exception;
+
+/**
+ * Excepción lanzada cuando se intenta crear un producto con un SKU que ya existe.
+ */
+public class DuplicateSkuException extends RuntimeException {
+
+    private final String sku;
+
+    public DuplicateSkuException(String sku) {
+        super(String.format("Ya existe un producto con el SKU '%s'", sku));
+        this.sku = sku;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+}

@@ -1,0 +1,152 @@
+# =============================================
+# DOCKER COMPOSE - Prueba Técnica Full Stack
+# =============================================
+# Orquesta: PostgreSQL (x2), Products Service, Inventory Service, Frontend
+#
+# USO:
+#   Iniciar todo:    docker-compose up -d
+#   Ver logs:        docker-compose logs -f
+#   Detener:         docker-compose down
+#   Rebuild:         docker-compose up -d --build
+#
+# URLS:
+#   Frontend:        http://localhost
+#   Products API:    http://localhost:8081/api/v1/swagger-ui.html
+#   Inventory API:   http://localhost:8082/api/v1/swagger-ui.html
+
+version: '3.8'
+
+services:
+  # ==================== BASES DE DATOS ====================
+  
+  products-db:
+    image: postgres:15-alpine
+    container_name: products-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: products_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - products-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  inventory-db:
+    image: postgres:15-alpine
+    container_name: inventory-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: inventory_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - inventory-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==================== MICROSERVICIOS BACKEND ====================
+  
+  products-service:
+    build:
+      context: ./backend/products-service
+      dockerfile: Dockerfile
+    container_name: products-service
+    ports:
+      - "8081:8081"
+    environment:
+      DB_HOST: products-db
+      DB_PORT: 5432
+      DB_NAME: products_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      API_KEY: my-secret-api-key-12345
+    depends_on:
+      products-db:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8081/api/v1/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
+
+  inventory-service:
+    build:
+      context: ./backend/inventory-service
+      dockerfile: Dockerfile
+    container_name: inventory-service
+    ports:
+      - "8082:8082"
+    environment:
+      DB_HOST: inventory-db
+      DB_PORT: 5432
+      DB_NAME: inventory_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      API_KEY: my-secret-api-key-12345
+      PRODUCTS_SERVICE_URL: http://products-service:8081/api/v1
+    depends_on:
+      inventory-db:
+        condition: service_healthy
+      products-service:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8082/api/v1/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
+
+  # ==================== FRONTEND ====================
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      products-service:
+        condition: service_healthy
+      inventory-service:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+# ==================== VOLÚMENES ====================
+
+volumes:
+  products-db-data:
+    name: products-db-data
+  inventory-db-data:
+    name: inventory-db-data
+
+# ==================== RED ====================
+
+networks:
+  microservices-network:
+    name: microservices-network
+    driver: bridge
