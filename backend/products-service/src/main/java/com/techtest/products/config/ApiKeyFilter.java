@@ -18,15 +18,7 @@ import java.util.List;
 
 /**
  * Filtro de seguridad que valida API Key en las peticiones.
- *
- * Este filtro:
- * 1. Verifica que las peticiones incluyan header X-API-Key
- * 2. Valida que el valor coincida con la API Key configurada
- * 3. Permite acceso sin API Key a endpoints públicos (Swagger, Actuator)
- *
- * Para comunicación entre microservicios, el Inventory Service
- * deberá enviar el header X-API-Key en sus peticiones.
- */
+  */
 @Component
 @Slf4j
 public class ApiKeyFilter extends OncePerRequestFilter {

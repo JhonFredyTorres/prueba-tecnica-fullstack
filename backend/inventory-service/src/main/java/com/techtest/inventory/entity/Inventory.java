@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
  * Entidad Inventory - Almacena el stock de cada producto.
  *
  * Nota: productId es una referencia al microservicio de Productos.
- * No usamos FK porque están en bases de datos diferentes (microservicios independientes).
  */
 @Entity
 @Table(name = "inventory", indexes = {

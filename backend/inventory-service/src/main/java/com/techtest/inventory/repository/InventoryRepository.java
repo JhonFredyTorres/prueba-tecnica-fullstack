@@ -39,7 +39,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long> {
     List<Inventory> findOutOfStockItems();
 
     /**
-     * Actualizar cantidad directamente (útil para operaciones masivas)
+     * Actualizar cantidad directamente
      */
     @Modifying
     @Query("UPDATE Inventory i SET i.quantity = :quantity WHERE i.productId = :productId")

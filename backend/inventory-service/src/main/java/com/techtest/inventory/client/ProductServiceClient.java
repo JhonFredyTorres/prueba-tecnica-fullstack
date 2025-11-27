@@ -123,9 +123,7 @@ public class ProductServiceClient {
     /**
      * Método de recuperación cuando se agotan los reintentos.
      * Se ejecuta después de que fallen todos los intentos.
-     *
-     * @Recover: método fallback cuando @Retryable agota sus intentos
-     */
+         */
     @Recover
     public boolean recoverProductExists(ResourceAccessException e, Long productId) {
         log.error("Todos los reintentos agotados para verificar producto {}. Error: {}",

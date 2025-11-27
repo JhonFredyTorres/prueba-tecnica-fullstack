@@ -5,14 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
-/**
- * Clase principal del Microservicio de Productos.
- *
- * @SpringBootApplication combina:
- * - @Configuration: Esta clase puede definir beans
- * - @EnableAutoConfiguration: Spring Boot configura automáticamente
- * - @ComponentScan: Busca componentes en este paquete y subpaquetes
- */
+
 @SpringBootApplication
 @Slf4j
 public class ProductsServiceApplication {

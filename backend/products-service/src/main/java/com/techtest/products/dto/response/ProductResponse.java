@@ -8,12 +8,7 @@ import java.time.LocalDateTime;
 
 /**
  * DTO que representa un producto en la respuesta de la API.
- *
- * No exponemos la entidad directamente porque:
- * 1. Podemos controlar qué campos mostrar
- * 2. Podemos formatear datos (fechas, precios)
- * 3. Desacoplamos la API de la base de datos
- */
+  */
 @Getter
 @Setter
 @NoArgsConstructor

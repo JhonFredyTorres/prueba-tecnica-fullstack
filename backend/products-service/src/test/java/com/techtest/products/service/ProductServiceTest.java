@@ -33,9 +33,7 @@ import static org.mockito.Mockito.*;
 
 /**
  * Pruebas unitarias del ProductService.
- *
- * Usamos Mockito para simular el repositorio y probar
- * la lógica de negocio de forma aislada.
+
  */
 @ExtendWith(MockitoExtension.class)
 @DisplayName("ProductService Tests")

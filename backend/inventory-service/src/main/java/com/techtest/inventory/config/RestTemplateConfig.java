@@ -41,7 +41,6 @@ public class RestTemplateConfig {
 
     /**
      * Interceptor que agrega el header X-API-Key a cada petición.
-     * Así no tenemos que agregarlo manualmente cada vez.
      */
     private ClientHttpRequestInterceptor apiKeyInterceptor() {
         return (request, body, execution) -> {

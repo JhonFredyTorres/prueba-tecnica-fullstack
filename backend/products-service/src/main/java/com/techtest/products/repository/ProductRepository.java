@@ -13,17 +13,6 @@ import java.util.Optional;
 
 /**
  * Repository para acceder a la tabla de productos.
- *
- * JpaRepository ya te da gratis estos métodos:
- * - save(entity)        → INSERT o UPDATE
- * - findById(id)        → SELECT por ID
- * - findAll()           → SELECT todos
- * - findAll(pageable)   → SELECT con paginación
- * - deleteById(id)      → DELETE por ID
- * - existsById(id)      → Verificar si existe
- * - count()             → Contar registros
- *
- * Aquí agregamos métodos personalizados que necesitamos.
  */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
@@ -34,7 +23,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findBySku(String sku);
 
     /**
-     * Verificar si existe un SKU (útil para validar antes de crear)
+     * Verificar si existe un SKU
      */
     boolean existsBySku(String sku);
 
@@ -50,7 +39,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     /**
      * Buscar productos por nombre (búsqueda parcial, ignorando mayúsculas)
-     * El '%' se agrega desde el service
      */
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<Product> searchByName(@Param("name") String name);

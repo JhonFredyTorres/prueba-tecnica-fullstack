@@ -12,12 +12,12 @@ module.exports = function (config) {
     ],
     client: {
       jasmine: {
-        // Puedes agregar opciones de configuración de Jasmine aquí
+        
       },
-      clearContext: false // Deja el output de Jasmine Spec Runner visible en el navegador
+      clearContext: false 
     },
     jasmineHtmlReporter: {
-      suppressAll: true // Remueve trazas duplicadas
+      suppressAll: true 
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/inventory-app'),

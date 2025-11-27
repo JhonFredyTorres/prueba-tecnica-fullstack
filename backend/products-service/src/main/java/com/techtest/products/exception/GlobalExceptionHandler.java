@@ -17,11 +17,6 @@ import java.util.stream.Collectors;
 
 /**
  * Manejador global de excepciones.
- *
- * Esta clase captura TODAS las excepciones que ocurran en los controllers
- * y las convierte en respuestas JSON:API apropiadas.
- *
- * @RestControllerAdvice = @ControllerAdvice + @ResponseBody
  */
 @RestControllerAdvice
 @Slf4j

@@ -6,15 +6,7 @@ import org.springframework.data.domain.Page;
 
 /**
  * Metadata de paginación para JSON:API.
- *
- * Incluye información sobre la paginación actual:
- * - totalElements: total de registros en la base de datos
- * - totalPages: total de páginas
- * - currentPage: página actual (0-indexed)
- * - pageSize: elementos por página
- * - isFirst: si es la primera página
- * - isLast: si es la última página
- */
+  */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -1,8 +1,5 @@
 /**
  * Environment de desarrollo.
- * 
- * Aquí configuramos las URLs de los microservicios backend
- * y otras variables que cambian entre ambientes.
  */
 export const environment = {
   production: false,

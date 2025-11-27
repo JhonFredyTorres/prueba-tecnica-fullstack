@@ -48,15 +48,7 @@ public class JsonApiListResponse<T> {
 
     /**
      * Crea una respuesta paginada desde un Page de Spring Data.
-     *
-     * @param page Resultado paginado de Spring Data
-     * @param type Tipo del recurso (ej: "products")
-     * @param basePath Path base para los links
-     * @param mapper Función para convertir entidad a DTO
-     * @param idExtractor Función para extraer el ID de la entidad
-     * @param <E> Tipo de la entidad
-     * @param <T> Tipo del DTO de respuesta
-     */
+          */
     public static <E, T> JsonApiListResponse<T> fromPage(
             Page<E> page,
             String type,

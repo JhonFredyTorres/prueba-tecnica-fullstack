@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Configuración de OpenAPI/Swagger.
  *
- * Una vez que la aplicación esté corriendo, puedes acceder a:
+ * Una vez que la aplicación esté corriendo, podemos acceder a:
  * - Swagger UI: http://localhost:8081/api/v1/swagger-ui.html
  * - JSON spec: http://localhost:8081/api/v1/api-docs
  */

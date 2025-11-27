@@ -2,10 +2,6 @@ package com.techtest.products.exception;
 
 /**
  * Excepción lanzada cuando no se encuentra un producto.
- *
- * Extiende RuntimeException porque:
- * 1. No queremos obligar a capturarla en cada llamada
- * 2. Spring la puede manejar con @ExceptionHandler
  */
 public class ProductNotFoundException extends RuntimeException {
 

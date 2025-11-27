@@ -7,10 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * DTO para crear o actualizar un producto.
- *
- * Las validaciones (@NotBlank, @NotNull, etc.) se ejecutan automáticamente
- * cuando usas @Valid en el controller.
- */
+  */
 @Getter
 @Setter
 @NoArgsConstructor

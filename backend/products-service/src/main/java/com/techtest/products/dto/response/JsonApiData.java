@@ -5,13 +5,7 @@ import lombok.*;
 
 /**
  * Wrapper JSON:API para un objeto individual.
- *
- * Según el estándar JSON:API, cada recurso debe tener:
- * - type: tipo del recurso (ej: "products")
- * - id: identificador único (como String)
- * - attributes: los datos del recurso
- *
- * Ejemplo de salida:
+  * Ejemplo de salida:
  * {
  *   "type": "products",
  *   "id": "1",

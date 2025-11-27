@@ -10,9 +10,6 @@ import java.time.LocalDateTime;
 
 /**
  * Entidad Product - Representa un producto en la base de datos.
- *
- * Esta clase se mapea directamente a la tabla "products" en PostgreSQL.
- * Usamos Lombok para evitar escribir getters, setters y constructores manualmente.
  */
 @Entity
 @Table(name = "products")

@@ -6,14 +6,7 @@ import org.springframework.data.domain.Page;
 
 /**
  * Links de navegación JSON:API para paginación.
- *
- * Según el estándar, debe incluir:
- * - self: URL de la página actual
- * - first: URL de la primera página
- * - last: URL de la última página
- * - prev: URL de la página anterior (null si es la primera)
- * - next: URL de la siguiente página (null si es la última)
- */
+  */
 @Getter
 @Setter
 @NoArgsConstructor
