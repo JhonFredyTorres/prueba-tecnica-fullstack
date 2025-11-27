@@ -220,7 +220,7 @@ Puertos 80, 8081, 8082, 5432 y 5433 disponibles
 
 Levantar todo con Docker
 # 1. Clonar
-git clone https://github.com/tu-usuario/prueba-tecnica-fullstack.git
+git clone [[https://github.com/tu-usuario/prueba-tecnica-fullstack.git](https://github.com/JhonFredyTorres/prueba-tecnica-fullstack.git)
 cd prueba-tecnica-fullstack
 
 # 2. Construir e iniciar
@@ -380,17 +380,7 @@ Indicadores visuales de stock bajo / agotado.
 
 Notificaciones y estados de carga.
 
-🚀 Próximos pasos
 
-Algunas extensiones naturales del proyecto:
-
-Añadir Circuit Breaker (Resilience4j) sobre las llamadas al Products Service.
-
-Cachear respuestas de productos desde Inventory (Redis).
-
-Introducir un API Gateway (por ejemplo, Spring Cloud Gateway).
-
-Llevar esta misma composición a Kubernetes mediante Helm charts.
 
 👨‍💻 Autor
 
@@ -399,5 +389,3 @@ Jhon Fredy Torres
 Full Stack Developer
 
 📧 Jhonfredytorresp@gmail.com
-
-🐙 GitHub
