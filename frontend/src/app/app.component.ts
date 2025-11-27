@@ -11,4 +11,4 @@ import { NotificationContainerComponent } from './shared/components/notification
 })
 export class AppComponent {
   title = 'Inventory System';
-}
+} 
